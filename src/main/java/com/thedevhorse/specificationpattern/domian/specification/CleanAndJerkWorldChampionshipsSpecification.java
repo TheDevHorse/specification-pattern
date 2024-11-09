@@ -4,12 +4,12 @@ import com.thedevhorse.specificationpattern.domian.composite.CompositeSpecificat
 
 import java.util.function.BiPredicate;
 
-public class SnatchOlympicsSpecification extends CompositeSpecification<Double> {
+public class CleanAndJerkWorldChampionshipsSpecification extends CompositeSpecification<Double> {
 
-    private static final double MINIMUM_WEIGHT = 120.0;
+    private static final double MINIMUM_WEIGHT = 180.0;
 
     @Override
     public BiPredicate<Double, Double> toPredicate() {
-        return (snatch, cleanAndJerk) -> snatch > MINIMUM_WEIGHT;
+        return (snatch, cleanAndJerk) -> cleanAndJerk > MINIMUM_WEIGHT;
     }
 }

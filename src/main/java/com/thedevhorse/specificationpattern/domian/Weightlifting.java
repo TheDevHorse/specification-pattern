@@ -1,5 +1,7 @@
 package com.thedevhorse.specificationpattern.domian;
 
+import com.thedevhorse.specificationpattern.domian.specification.*;
+
 public class Weightlifting {
 
     private String athleteName;
@@ -45,9 +47,24 @@ public class Weightlifting {
     }
 
     private void setEligibleForOlympics(double snatchWeight, double cleanAndJerkWeight) {
+        this.eligibleForOlympics = new TotalOlympicsSpecification()
+                .toPredicate()
+                .or(
+                        new CleanAndJerkOlympicsSpecification()
+                                .toPredicate()
+                                .and(new SnatchOlympicsSpecification().toPredicate())
+                )
+                .test(snatchWeight, cleanAndJerkWeight);
     }
 
     private void setEligibleForWorldChampionships(double snatchWeight, double cleanAndJerkWeight) {
-
+        this.eligibleForWorldChampionships = new TotalWorldChampionshipsSpecification()
+                .toPredicate()
+                .or(
+                        new CleanAndJerkWorldChampionshipsSpecification()
+                                .toPredicate()
+                                .and(new SnatchWorldChampionshipsSpecification().toPredicate())
+                )
+                .test(snatchWeight, cleanAndJerkWeight);
     }
 }

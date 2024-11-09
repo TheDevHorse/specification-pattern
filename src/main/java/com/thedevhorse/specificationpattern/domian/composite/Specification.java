@@ -1,7 +1,7 @@
 package com.thedevhorse.specificationpattern.domian.composite;
 
-import java.util.function.Predicate;
+import java.util.function.BiPredicate;
 
 public interface Specification<T> {
-    Predicate<T> toPredicate();
+    BiPredicate<T, T> toPredicate();
 }
