@@ -1,6 +1,6 @@
 package com.thedevhorse.specificationpattern.domian.composite;
 
-import java.util.function.Predicate;
+import java.util.function.BiPredicate;
 
 public class OrSpecification<T> extends CompositeSpecification<T> {
 
@@ -13,7 +13,7 @@ public class OrSpecification<T> extends CompositeSpecification<T> {
     }
 
     @Override
-    public Predicate<T> toPredicate() {
+    public BiPredicate<T, T> toPredicate() {
         return firstSpecification.toPredicate().or(secondSpecification.toPredicate());
     }
 }

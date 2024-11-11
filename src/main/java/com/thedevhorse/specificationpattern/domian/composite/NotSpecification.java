@@ -1,6 +1,6 @@
 package com.thedevhorse.specificationpattern.domian.composite;
 
-import java.util.function.Predicate;
+import java.util.function.BiPredicate;
 
 public class NotSpecification<T> extends CompositeSpecification<T> {
 
@@ -11,7 +11,7 @@ public class NotSpecification<T> extends CompositeSpecification<T> {
     }
 
     @Override
-    public Predicate<T> toPredicate() {
+    public BiPredicate<T, T> toPredicate() {
         return specification.toPredicate().negate();
     }
 }
