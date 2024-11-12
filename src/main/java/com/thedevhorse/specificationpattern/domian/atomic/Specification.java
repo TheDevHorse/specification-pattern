@@ -1,6 +1,6 @@
 package com.thedevhorse.specificationpattern.domian.atomic;
 
-public interface AtomicSpecification<T> {
+public interface Specification<T> {
     boolean isSatisfiedBy(T t);
 
 }
