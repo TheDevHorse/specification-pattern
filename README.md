@@ -1,5 +1,5 @@
 
-# Specification Pattern - Weightlifting Example
+# Specification Pattern
 
 ## Overview
 
