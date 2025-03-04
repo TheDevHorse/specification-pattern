@@ -19,12 +19,12 @@ Specification objects are classes that contain individual validation rules. In t
 Specifications can be combined using logical operators like "and" and "or". For instance, in the given code, an athlete's Olympic eligibility is determined by checking whether both the snatch and clean & jerk weights meet the required criteria:
 
 ```java
- private void setEligibleForOlympics(double snatchWeight, double cleanAndJerkWeight) {
+private void setEligibleForOlympics(double snatchWeight, double cleanAndJerkWeight) {
         this.eligibleForOlympics = new CleanAndJerkOlympicsSpecification()
+                .and(new SnatchOlympicsSpecification())
                 .toPredicate()
-                .and(new SnatchOlympicsSpecification().toPredicate())
                 .test(snatchWeight, cleanAndJerkWeight);
- }
+}
 ```
 
 ### 3. Using Predicates
