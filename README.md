@@ -16,7 +16,7 @@ Specification objects are classes that contain individual validation rules. In t
 
 ### 2. Composing Specifications
 
-Specifications can be combined using logical operators like and and or. For instance, in the given code, an athlete's Olympic eligibility is determined by checking whether both the snatch and clean & jerk weights meet the required criteria:
+Specifications can be combined using logical operators like "and" and "or". For instance, in the given code, an athlete's Olympic eligibility is determined by checking whether both the snatch and clean & jerk weights meet the required criteria:
 
 ```java
  private void setEligibleForOlympics(double snatchWeight, double cleanAndJerkWeight) {
