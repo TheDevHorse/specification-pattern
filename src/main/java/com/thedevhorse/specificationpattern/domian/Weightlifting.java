@@ -1,7 +1,10 @@
 package com.thedevhorse.specificationpattern.domian;
 
 import com.thedevhorse.specificationpattern.domian.atomic.EmailSpecification;
-import com.thedevhorse.specificationpattern.domian.specification.*;
+import com.thedevhorse.specificationpattern.domian.specification.CleanAndJerkOlympicsSpecification;
+import com.thedevhorse.specificationpattern.domian.specification.CleanAndJerkWorldChampionshipsSpecification;
+import com.thedevhorse.specificationpattern.domian.specification.SnatchOlympicsSpecification;
+import com.thedevhorse.specificationpattern.domian.specification.SnatchWorldChampionshipsSpecification;
 
 public class Weightlifting {
 
@@ -56,24 +59,16 @@ public class Weightlifting {
     }
 
     private void setEligibleForOlympics(double snatchWeight, double cleanAndJerkWeight) {
-        this.eligibleForOlympics = new TotalOlympicsSpecification()
-                .toPredicate()
-                .or(
-                        new CleanAndJerkOlympicsSpecification()
+        this.eligibleForOlympics = new CleanAndJerkOlympicsSpecification()
                                 .toPredicate()
                                 .and(new SnatchOlympicsSpecification().toPredicate())
-                )
                 .test(snatchWeight, cleanAndJerkWeight);
     }
 
     private void setEligibleForWorldChampionships(double snatchWeight, double cleanAndJerkWeight) {
-        this.eligibleForWorldChampionships = new TotalWorldChampionshipsSpecification()
-                .toPredicate()
-                .or(
-                        new CleanAndJerkWorldChampionshipsSpecification()
+        this.eligibleForWorldChampionships = new CleanAndJerkWorldChampionshipsSpecification()
                                 .toPredicate()
                                 .and(new SnatchWorldChampionshipsSpecification().toPredicate())
-                )
                 .test(snatchWeight, cleanAndJerkWeight);
     }
 
