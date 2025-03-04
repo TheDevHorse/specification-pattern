@@ -11,26 +11,21 @@ The **Specification Pattern** is a design pattern that allows you to encapsulate
 
 Specification objects are classes that contain individual validation rules. In the given code, there are classes such as:
 
-- `TotalOlympicsSpecification`
 - `CleanAndJerkOlympicsSpecification`
 - `SnatchOlympicsSpecification`
 - Similarly, there are specifications for the World Championships (`TotalWorldChampionshipsSpecification`, `CleanAndJerkWorldChampionshipsSpecification`, etc.).
 
 ### 2. Composing Specifications
 
-Specifications can be combined using logical operators such as `or` and `and`. For example, to check if the athlete is eligible for the Olympics, the code checks if the total weight or combinations of snatch and clean & jerk meet the requirements.
+Specifications can be combined using logical operators like and and or. For instance, in the given code, an athlete's Olympic eligibility is determined by checking whether both the snatch and clean & jerk weights meet the required criteria:
 
 ```java
-private void setEligibleForWorldChampionships(double snatchWeight, double cleanAndJerkWeight) {
-    this.eligibleForWorldChampionships = new TotalWorldChampionshipsSpecification()
-            .toPredicate()
-            .or(
-                    new CleanAndJerkWorldChampionshipsSpecification()
-                            .toPredicate()
-                            .and(new SnatchWorldChampionshipsSpecification().toPredicate())
-            )
-            .test(snatchWeight, cleanAndJerkWeight);
-}
+ private void setEligibleForOlympics(double snatchWeight, double cleanAndJerkWeight) {
+        this.eligibleForOlympics = new CleanAndJerkOlympicsSpecification()
+                .toPredicate()
+                .and(new SnatchOlympicsSpecification().toPredicate())
+                .test(snatchWeight, cleanAndJerkWeight);
+ }
 ```
 
 ### 3. Using Predicates
