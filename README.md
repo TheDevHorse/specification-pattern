@@ -13,7 +13,6 @@ Specification objects are classes that contain individual validation rules. In t
 
 - `CleanAndJerkOlympicsSpecification`
 - `SnatchOlympicsSpecification`
-- Similarly, there are specifications for the World Championships (`TotalWorldChampionshipsSpecification`, `CleanAndJerkWorldChampionshipsSpecification`, etc.).
 
 ### 2. Composing Specifications
 
